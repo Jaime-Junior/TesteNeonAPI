@@ -2,10 +2,6 @@ Dado("que eu envio um GET para a API Planetas") do
   @planetas.api_planetas
 end
 
-Quando("recebo a resposta da API") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
 Quando("armazeno o valor do campo count") do
   pending # Write code here that turns the phrase above into concrete actions
 end

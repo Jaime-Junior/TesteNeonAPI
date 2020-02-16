@@ -1,19 +1,23 @@
 Dado("que eu envio um GET para a API Planetas") do
-  @planetas.api_planetas
+  @url = @planetas.api_planetas
+  expect(@url.code).to eql 200
 end
 
 Quando("armazeno o valor do campo count") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @count = @response["count"]
 end
 
 Então("envio um novo GET acrescentando {int} ao valor do count") do |int|
-  pending # Write code here that turns the phrase above into concrete actions
+  $newcount = @count + int
+  @novocount = @planetas.api_novo_get
 end
 
 Então("valido o statuscode de erro") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(@novocount.code).to eql 404
+  puts "O statuscode é #{@novocount.code}"
 end
 
 Então("valido a mensagem de erro") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(@novocount["detail"]).to eql "Not found"
+  puts "A mensagem de erro é #{@novocount}"
 end

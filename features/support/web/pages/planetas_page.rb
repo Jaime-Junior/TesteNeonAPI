@@ -2,6 +2,10 @@ class PlanetasApi
   include HTTParty
 
   def api_planetas
-    get("http://swapi.co/api/planets/")
+    HTTParty.get("http://swapi.co/api/planets/")
+  end
+
+  def api_novo_get
+    HTTParty.get("http://swapi.co/api/planets/#{$newcount}")
   end
 end

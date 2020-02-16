@@ -1,19 +1,28 @@
 Dado("que eu envio um GET para a API filmes") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @url = @filmes.api_filmes
 end
 
 Quando("recebo a resposta da API") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @response = @url
 end
 
 Quando("armazeno o valor do campo title") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @filme = @response["results"][0]["title"]
+  @filme2 = @response["results"][1]["title"]
+  @filme3 = @response["results"][2]["title"]
+  @filme4 = @response["results"][3]["title"]
+  @filme5 = @response["results"][4]["title"]
+  @filme6 = @response["results"][5]["title"]
+  @filme7 = @response["results"][6]["title"]
+
+  @titulos = [@filme, @filme2, @filme3, @filme4, @filme5, @filme6, @filme7]
 end
 
 Então("verifico o statuscode de sucesso da API") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(@response.code).to eql 200
+  puts "O statuscode é #{@response.code}"
 end
 
 Então("exibo os valores armazenados") do
-  pending # Write code here that turns the phrase above into concrete actions
+  puts @titulos
 end
